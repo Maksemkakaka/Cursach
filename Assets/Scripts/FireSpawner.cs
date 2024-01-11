@@ -39,11 +39,21 @@ public class FireSpawner : MonoBehaviour
             newFire.transform.SetParent(spawnPoint, true);
 
             FireManager fireManager = newFire.GetComponent<FireManager>();
-            fireManager.currentFire = newFire;
+            if (fireManager != null)
+            {
+                fireManager.currentFire = newFire;
+                fireManager.isFireActive = true; 
+            }
 
-            // —оздайте индикатор прогресса дл€ нового огн€
+
             GameObject newIndicator = Instantiate(indicatorPrefab, canvasTransform);
-            newIndicator.GetComponent<FireProgressIndicator>().SetFireManager(fireManager);
+            FireProgressIndicator progressIndicator = newIndicator.GetComponent<FireProgressIndicator>();
+            if (progressIndicator != null)
+            {
+                progressIndicator.SetFireManager(fireManager);
+                progressIndicator.Initialize(newFire.GetComponent<FireExtinguishing>()); 
+            }
+
         }
     }
 

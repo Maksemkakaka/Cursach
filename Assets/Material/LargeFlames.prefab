@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4486530029139426866}
   - component: {fileID: 2238370445657502269}
   - component: {fileID: 33532161965578503}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LargeFlames
   m_TagString: Fire
   m_Icon: {fileID: 0}
@@ -4902,5 +4902,5 @@ MonoBehaviour:
   firePrefab: {fileID: 3287368693777594457}
   extinguishProgress: 0
   extinguishThreshold: 100
-  isFireActive: 1
+  isFireActive: 0
   currentFire: {fileID: 3287368693777594457}

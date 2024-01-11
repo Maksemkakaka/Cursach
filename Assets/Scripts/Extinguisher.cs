@@ -18,17 +18,19 @@ public class Extinguisher : MonoBehaviour
 
             // Визуализируем Raycast для отладки
             Debug.DrawLine(rayOrigin, rayOrigin + rayDirection * extinguishDistance, Color.red);
+            int layerMask = 1 << LayerMask.NameToLayer("House"); // Получаем маску слоя для слоя "House"
+            layerMask = ~layerMask; // Инвертируем маску, чтобы рейкаст игнорировал слой "House"
 
-            if (Physics.Raycast(rayOrigin, rayDirection, out hit, extinguishDistance))
+
+            if (Physics.Raycast(rayOrigin, rayDirection, out hit, extinguishDistance, layerMask))
             {
-                Debug.Log("Raycast hit: " + hit.collider.name); // Выводим имя попавшегося объекта
+/*                Debug.Log("Raycast hit: " + hit.collider.name); // Выводим имя попавшегося объекта*/
 
                 if (hit.collider.CompareTag("Fire"))
                 {
                     FireManager fireManager = hit.collider.GetComponentInParent<FireManager>();
                     if (fireManager != null)
-                    {
-                        Debug.Log("Extinguishing fire");
+                    { 
                         fireManager.UpdateExtinguishProgress(Time.deltaTime * 10);
                     }
                 }

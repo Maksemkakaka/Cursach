@@ -29,8 +29,6 @@ public class FireExtinguishing : MonoBehaviour
     {
         if (!IsFireActive)
             return;
-
-        Debug.Log("Fire is completely extinguished.");
         fireParticles.Stop();
         fireParticles.Clear();
         IsFireActive = false;
