@@ -11,7 +11,6 @@ public class FireProgressIndicator : MonoBehaviour
     {
         fireManager = fireExtinguishing.GetComponentInParent<FireManager>();
         targetFireExtinguishing = fireExtinguishing;
-        Debug.Log($"FireExtinguishing assigned: {targetFireExtinguishing != null}, Active: {targetFireExtinguishing?.IsFireActive}");
     }
 
 

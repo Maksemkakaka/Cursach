@@ -20,7 +20,7 @@ public class FirstPlayer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked; 
+
         animator = GetComponent<Animator>();
     }
 

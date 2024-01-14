@@ -8,7 +8,6 @@ public class Chest : MonoBehaviour
     {
         if (swordPrefab != null)
         {
-            // Создаем меч рядом с ящиком или в специально отведенном месте
             GameObject sword = Instantiate(swordPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
             return sword;
         }
